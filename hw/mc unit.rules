@@ -1,0 +1,83 @@
+
+(rules PCB mc unit
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 9)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 500.2 (type default_wide))
+    (clear 50.0 (type smd_smd))
+    (clear 500.2 (type smd_wide))
+    (clear 500.2 (type "kicad_default"_wide))
+    (clear 500.2 (type wide_wide))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-wide" "Via[0-1]_800:400_um" wide
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    wide "Via[0-1]_800:400_um-wide"
+  )
+  (class default
+    +12V "Net-(C2-Pad1)" "Net-(C3-Pad1)" "Net-(C4-Pad1)" "Net-(C5-Pad1)" "Net-(C6-Pad1)" "Net-(C7-Pad1)" +5V
+    "/General 1 out" "/General 2 out" "/Oil out" RST COUT "Net-(U4-Pad16)" "B2 shunt" "B1 Shunt"
+    i28 "Net-(U4-Pad15)" "Net-(U4-Pad14)" "Net-(U4-Pad13)" "Net-(U4-Pad12)" "B1 in" "B2 in" "fuel in"
+    "Oil in" "General 1 in" "General 2 in" "unconnected-(U3-Pad7)" "unconnected-(U3-Pad8)" "unconnected-(U3-Pad10)" "unconnected-(U3-Pad11)" "/Fuel out"
+    "/Blink 1 out" "/Blink 2 out" "unconnected-(U3-Pad19)" "unconnected-(U3-Pad20)" "unconnected-(U3-Pad22)" i26 i24 "unconnected-(U3-Pad25)"
+    "unconnected-(U3-Pad26)" "unconnected-(U3-Pad27)" "unconnected-(U3-Pad28)" "unconnected-(U4-Pad7)" "unconnected-(U4-Pad10)" "Blink 1 ctrl" "Blink 2 ctrl" "Net-(R11-Pad1)"
+    "Net-(R12-Pad1)" "Net-(R13-Pad1)" "Net-(R14-Pad1)" "unconnected-(R15-Pad1)" "unconnected-(R16-Pad1)" "Net-(R17-Pad1)" "Net-(R18-Pad1)" i210
+    i29 "Net-(U4-Pad11)" "Net-(J5-Pad1)" "Net-(J7-Pad1)" "Net-(J10-Pad1)" "Net-(J12-Pad1)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
