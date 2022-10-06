@@ -380,7 +380,7 @@
         "microvia_drill": 0.1,
         "name": "wide",
         "nets": [],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(0, 0, 0)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 5.0,
         "via_diameter": 0.8,
@@ -391,7 +391,9 @@
     "meta": {
       "version": 2
     },
-    "net_colors": null
+    "net_colors": {
+      "Turn Ledc": "rgb(0, 132, 0)"
+    }
   },
   "pcbnew": {
     "last_paths": {
@@ -405,7 +407,7 @@
     "page_layout_descr_file": ""
   },
   "schematic": {
-    "annotate_start_num": 0,
+    "annotate_start_num": 25,
     "drawing": {
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
